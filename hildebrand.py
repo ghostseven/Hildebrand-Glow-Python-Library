@@ -120,9 +120,9 @@ class Glow:
         Desc:
             Returns available resource list, at the current time it should contain four different resources as follows;
             electricity.consumption         - Electricity in energy units (Wh. / kWh.)
-            electricity.consumption.cost    - Electricity in monetary units (pence) NOTE: Broken if used for /current, work arround in place.
+            electricity.consumption.cost    - Electricity in monetary units (pence) NOTE: Broken if used for /current, work around in place.
             gas.consumption                 - Gas in energy units (Wh. / kWh.)
-            gas.consumption.cost            - Gas in monetary units (pence) NOTE: Broken if used for /current, work arround in place.
+            gas.consumption.cost            - Gas in monetary units (pence) NOTE: Broken if used for /current, work around in place.
             
             It also updates two variables to store the id's of electricity.consumption and gas.consumption for use later.
         Args:
@@ -193,7 +193,7 @@ class Glow:
         Desc:
             Returns the current electrical usage, both W/kWh, cost and current tariff rate.
         NOTE:
-            A call requesing the unit cost (for current usage) is broken in the API so we work arround by taking usage plus 
+            A call requesting the unit cost (for current usage) is broken in the API so we work around by taking usage plus 
             tariff and manually calculating.
         Args:
             None
@@ -215,7 +215,7 @@ class Glow:
             hack of broken API function.  If you call the standard current usage you get a meter read rather 
             than the current usage, but you can use /reading to look at the last hour and work out the diff, this is done here.
 
-            Also a call requesing the unit cost (for current usage) is broken in the API so we work arround by taking usage and 
+            Also a call requesting the unit cost (for current usage) is broken in the API so we work around by taking usage and 
             tariff and manually calculating.
         Args:
             None
@@ -288,7 +288,7 @@ class Glow:
             Returns the current gas meter reading.
         NOTE:
             The actual function in the API to do this is broken, it appear to return the electrical reading again for gas
-            it is worked arround as the gas current consuption check returns a meter read rather than current consumption
+            it is worked around as the gas current consuption check returns a meter read rather than current consumption
             happy little bugs working to fix themselves. /bobrossclouds
         Args:
             None
