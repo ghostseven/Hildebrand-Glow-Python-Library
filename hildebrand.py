@@ -209,7 +209,7 @@ class Glow:
     def getGasCurrent(self):
         """
         Desc:
-            Returns the current gas usage, kWh, cost and current tariff rate.
+            Returns the current electrical usage, both W/kWh, cost and current tariff rate.
         NOTE:
             Gas readings are taken every 30 minutes so this is a realtime as it gets, this is also a back 
             hack of broken API function.  If you call the standard current usage you get a meter read rather 
@@ -306,8 +306,11 @@ class Glow:
         
 # Utility Functions 
 def toCost(rate, ammount, unit):
-    if unit == 'W': ammount = ammount/1000
-    return ammount * rate
+    try:
+        if unit == 'W': ammount = ammount/1000
+        return ammount * rate
+    except:
+        return 0
 
 def postRequest(url, head=None, body=None, timeout=10):
     req = urllib.request.Request(url)
